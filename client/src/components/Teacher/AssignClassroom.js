@@ -32,7 +32,7 @@ const AssignClassroom = () => {
   };
 
   return (
-    <div className="">
+    <div className="p-8">
       <h1 className="text-4xl font-bold mb-4">Classroom List</h1>
 
       <div className="mb-12 space-y-4">
@@ -60,7 +60,9 @@ const AssignClassroom = () => {
                     <TableCell style={{ fontWeight: "bold" }}>
                       End Time
                     </TableCell>
-                    <TableCell style={{ fontWeight: "bold" }}>Days</TableCell>
+                    <TableCell style={{ fontWeight: "bold" }}>
+                      Days
+                    </TableCell>
                     <TableCell style={{ fontWeight: "bold" }}>
                       Assigned Teacher
                     </TableCell>
