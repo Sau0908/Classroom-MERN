@@ -32,7 +32,7 @@ const AssignClassroom = () => {
   };
 
   return (
-    <div className="p-8">
+    <div className="">
       <h1 className="text-4xl font-bold mb-4">Classroom List</h1>
 
       <div className="mb-12 space-y-4">
