@@ -12,7 +12,7 @@ export const fetchStudents = createAsyncThunk(
   "students/fetchStudents",
   async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/student");
+      const response = await axios.get("https://classroom-mern-rdnf.vercel.app/api/student");
       return response.data;
     } catch (error) {
       throw error;
@@ -25,7 +25,7 @@ export const fetchStudentGrouped = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/student/grouped"
+        "https://classroom-mern-rdnf.vercel.app/api/student/grouped"
       );
       return response.data;
     } catch (error) {
@@ -40,7 +40,7 @@ export const updateStudent = createAsyncThunk(
     const token = getState().auth.token;
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/student/${student.id}`,
+        `https://classroom-mern-rdnf.vercel.app/api/student/${student.id}`,
         student,
         {
           headers: {
@@ -60,7 +60,7 @@ export const deleteStudent = createAsyncThunk(
   async (id, { getState }) => {
     const token = getState().auth.token;
     try {
-      await axios.delete(`http://localhost:5000/api/student/${id}`, {
+      await axios.delete(`https://classroom-mern-rdnf.vercel.app/api/student/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -78,7 +78,7 @@ export const assignTeacherToStudent = createAsyncThunk(
     const token = getState().auth.token;
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/student/assignteacher",
+        "https://classroom-mern-rdnf.vercel.app/api/student/assignteacher",
         { studentId, teacherId },
         {
           headers: {
