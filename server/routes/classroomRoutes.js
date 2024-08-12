@@ -8,7 +8,7 @@ import { isPrincipal } from "../middlewares/auth.js";
 
 const router = express.Router();
 
-router.get("/", isPrincipal, getAllClassroom);
+router.get("/",  getAllClassroom);
 router.post("/", isPrincipal, createClassroom);
 router.post("/assignteacher", isPrincipal, assignTeacherToClassroom);
 
