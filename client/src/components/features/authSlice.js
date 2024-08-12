@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const login = createAsyncThunk("auth/login", async (credentials) => {
   const response = await axios.post(
-    "http://localhost:5000/api/users/login",
+    "https://classroom-mern-rdnf.vercel.app/api/users/login",
     credentials
   );
 
@@ -16,7 +16,7 @@ export const createTeacher = createAsyncThunk(
     const token = getState().auth.token;
 
     const response = await axios.post(
-      "http://localhost:5000/api/users/createTeacher",
+      "https://classroom-mern-rdnf.vercel.app/api/users/createTeacher",
       teacherData,
       {
         headers: {
@@ -35,7 +35,7 @@ export const createStudent = createAsyncThunk(
     const token = getState().auth.token;
 
     const response = await axios.post(
-      "http://localhost:5000/api/users/createStudent",
+      "https://classroom-mern-rdnf.vercel.app/api/users/createStudent",
       studentData,
       {
         headers: {
