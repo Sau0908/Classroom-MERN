@@ -3,19 +3,12 @@ import axios from "axios";
 
 export const createClassroom = createAsyncThunk(
   "classrooms/createClassroom",
-  async (classroomData, { getState }) => {
-    const token = getState().auth.token;
+  async (classroomData) => {
     try {
       const response = await axios.post(
         "https://classroom-mern-rdnf.vercel.app/api/classroom",
-        classroomData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        classroomData
       );
-
       return response.data;
     } catch (error) {
       throw error;
@@ -25,14 +18,11 @@ export const createClassroom = createAsyncThunk(
 
 export const fetchClassrooms = createAsyncThunk(
   "classroom/fetchClassrooms",
-  async ({ getState }) => {
-    const token = getState().auth.token;
+  async () => {
     try {
-      const response = await axios.get("https://classroom-mern-rdnf.vercel.app/api/classroom", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        "https://classroom-mern-rdnf.vercel.app/api/classroom"
+      );
       return response.data;
     } catch (error) {
       throw error;
@@ -42,19 +32,14 @@ export const fetchClassrooms = createAsyncThunk(
 
 export const assignTeacherToClassroom = createAsyncThunk(
   "classroom/assignTeacher",
-  async ({ classroomId, teacherId }, { dispatch }, { getState }) => {
-    const token = getState().auth.token;
+  async ({ classroomId, teacherId }, { dispatch }) => {
     try {
       const response = await axios.post(
         "https://classroom-mern-rdnf.vercel.app/api/classroom/assignteacher",
-        { classroomId, teacherId },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        { classroomId, teacherId }
       );
       dispatch(fetchClassrooms());
+      return response.data;
     } catch (error) {
       throw error;
     }
@@ -96,11 +81,11 @@ const classroomSlice = createSlice({
     builder.addCase(assignTeacherToClassroom.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(assignTeacherToClassroom.fulfilled, (state, action) => {
-      state.isLoading = true;
+    builder.addCase(assignTeacherToClassroom.fulfilled, (state) => {
+      state.isLoading = false;
     });
     builder.addCase(assignTeacherToClassroom.rejected, (state, action) => {
-      state.isLoading = true;
+      state.isLoading = false;
       state.error = action.error.message;
     });
   },
