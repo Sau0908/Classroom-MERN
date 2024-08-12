@@ -35,6 +35,11 @@ const Header = () => {
             Teacher Dashboard
           </Link>
         )}
+          {role === "Student" && (
+          <Link to="/student" className="hover:text-gray-400">
+            Student Dashboard
+          </Link>
+        )}
       </nav>
       <Button onClick={handleLogout} className="ml-auto">
         <LogoutIcon className="hover:text-gray-400" /> Logout
