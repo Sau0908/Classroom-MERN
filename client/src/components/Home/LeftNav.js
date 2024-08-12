@@ -35,7 +35,7 @@ const LeftNav = ({ role }) => {
           </>
         )}
 
-        {/* Links for Teacher */}
+        
         {role === "Teacher" && (
           <>
             <Link
@@ -47,18 +47,14 @@ const LeftNav = ({ role }) => {
           </>
         )}
 
-        {/* Links for Student */}
+      
         {role === "Student" && (
           <>
-            <Link to="/classroom" className="hover:bg-gray-700 p-2 rounded">
-              Classrooms
-            </Link>
+          
             <Link to="/classrooms" className="hover:bg-gray-700 p-2 rounded">
               Classmates
             </Link>
-            <Link to="/timetable" className="hover:bg-gray-700 p-2 rounded">
-              Timetable
-            </Link>
+          
           </>
         )}
       </nav>
