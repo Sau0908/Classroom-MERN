@@ -51,7 +51,7 @@ const LeftNav = ({ role }) => {
         {role === "Student" && (
           <>
           
-            <Link to="/allclassmates" className="hover:bg-gray-700 p-2 rounded">
+            <Link to="/student" className="hover:bg-gray-700 p-2 rounded">
               Classmates
             </Link>
           
