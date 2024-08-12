@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.get("/", getAllStudents);
 router.get("/grouped", getAllStudentsByGrade);
-router.post("/assignteacher", assignTeacherToStudent);
-router.put("/:id", updateStudent);
-router.delete("/:id", deleteStudent);
+router.post("/assignteacher", isPrincipal, assignTeacherToStudent);
+router.put("/:id", isForStudent, updateStudent);
+router.delete("/:id", isForStudent, deleteStudent);
 export default router;
